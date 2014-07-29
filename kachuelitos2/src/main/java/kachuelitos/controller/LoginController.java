@@ -23,7 +23,7 @@ public class LoginController {
 
 	        logger.info("Returning dashboard view");
 
-	        String s = "wilder";
+	        String s = "wilder2";
 	        
 	        return new ModelAndView("dashboard","prueba",s);
 	    }
