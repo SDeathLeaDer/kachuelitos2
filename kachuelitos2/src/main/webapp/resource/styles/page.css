@@ -1,0 +1,96 @@
+@CHARSET "ISO-8859-1";
+
+* {
+	margin: 0px;
+	padding: 0px
+}
+
+body {
+	margin: auto;
+	width: 960px;
+	height: 100%;
+
+}
+
+#header {
+	width: 960px;
+	height: 150px;
+	background: white;
+}
+
+#logo {
+	float: left;
+	margin-top: 50px;
+	margin-left: 20px
+}
+
+#mainlogo {
+	margin-top: 40px;
+	margin-bottom: 10px;
+}
+
+#login {
+	width: 960px;
+	height: 80px;
+	background: white;
+}
+
+#buttonTop {
+	float: right;
+	margin-top: 40px;
+	margin-right: 40px
+}
+
+
+#main {
+	width: 960px;
+	height: 250px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	
+}
+
+#main2 {
+	width: 960px;
+	height: 450px;
+	margin-top: 10px;
+	margin-bottom: 10px;	
+}
+
+#content {
+	width: 954px;
+	height: 500px;
+	background: white;
+	border-style:groove;
+	border-color:#010E6E;
+}
+
+table#tablelogin
+{
+    border-collapse:separate;
+    border-spacing:0 10px;
+
+    
+}
+
+
+.maincontent {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.maincontent2 {
+	margin-top: 50px;
+}
+
+.footer {
+	width: 960px;
+	height: 80px;
+	text-align: center;
+	padding-top: 20px
+}
+
+button {
+	width: 100px;
+	height: 30px; 	
+}

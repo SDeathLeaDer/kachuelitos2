@@ -25,15 +25,18 @@ public class LoginController {
 	@Autowired
 	private UserManager userManager;
 
-	@RequestMapping(value = "/hello.htm")
+	@RequestMapping(value = "/login.htm")
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
 		logger.info("Haciendo login");
 
-		String sDni = (String) request.getAttribute("dni");
-		String sPassword = (String) request.getAttribute("password");
+		String sDni = (String) request.getParameter("idni");
+		String sPassword = (String) request.getParameter("spassword");
 		ModelAndView modelview;
+		
+		System.out.println("ta aqui");
+		System.out.println(sDni + "-"+sPassword);
 
 		if (userManager.validateUser(sDni, sPassword)) {
 
@@ -42,7 +45,7 @@ public class LoginController {
 		}
 
 		else {
-			modelview = new ModelAndView("login.jsp");
+			modelview = new ModelAndView("login");
 		}
 
 		return modelview;

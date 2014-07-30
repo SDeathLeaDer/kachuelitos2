@@ -52,22 +52,15 @@ public class SimpleUserManager implements UserManager {
         response.addCookie(userName);
         
     
-        return new ModelAndView("dashboard");
-        /*
-        try {
-			response.sendRedirect("dashboard.jsp?user_id=" + user.getDniuser());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
+        return new ModelAndView("useraccount","user", user);
+        
 	}
 	
 	public ModelAndView sessionClose(HttpServletRequest request)
 	{
 		request.getSession().invalidate();
 		
-	     return new ModelAndView("index.jsp");
+	     return new ModelAndView("login");
 		
 	}
     
