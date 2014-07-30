@@ -1,5 +1,5 @@
-<html>
-<body>
-<h2>Hello World 2!</h2>
-</body>
-</html>
+<%@ include file="/WEB-INF/views/include.jsp" %>
+
+<%-- Redirected because we can't set the welcome page to a virtual URL. --%>
+
+<c:redirect url="/hello.htm"/>

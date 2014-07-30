@@ -1,19 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ include file="/WEB-INF/views/include.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ include file="/WEB-INF/views/include.jsp"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Hello :: Spring Application</title>
 </head>
 <body>
-<p>Greetings, it is now <c:out value="${prueba}"/></p>
-<fmt:message key="title" />
-bienvenidoss
+	<h1>
+		<fmt:message key="heading" />
+	</h1>
+	<p>
+		<fmt:message key="greeting" />
+		<c:out value="${salida.prueba }" />
+	</p>
+	<h3>Products</h3>
+	<c:forEach items="${salida.userAll}" var="prod">
+		<c:out value="${prod.dniuser}" />
+		<i>$<c:out value="${prod.nombreUser}" /></i>
+		<br>
+		<br>
+	</c:forEach>
+<!--
+	<br>
+	<a href="<c:url value="priceincrease.htm"/>">Increase Prices</a>
+	<br>
 
-<c:out value="${model.usuario.name}"/>
-
-
+  -->
 </body>
 </html>
