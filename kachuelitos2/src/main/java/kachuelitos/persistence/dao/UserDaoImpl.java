@@ -1,10 +1,14 @@
 package kachuelitos.persistence.dao;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import kachuelitos.persistence.entity.User;
+
+
 
 
 import org.springframework.stereotype.Repository;
@@ -44,7 +48,23 @@ public class UserDaoImpl implements UserDao {
 		return null;
 	}
 
-	
+    @SuppressWarnings("unchecked")
+	@Transactional(readOnly = false)
+	public User getUsuarioDniPassword(String sDni, String sPassword) {
+		// TODO Auto-generated method stub
+    	User user = null;
+    	
+    	List<User> lUser = em.createQuery("select u from User u where u.dniuser="+sDni+"and u.contrasenhaUser="+ sPassword).getResultList();
+
+    	if(lUser.iterator().hasNext()){
+    		user = lUser.iterator().next();
+    	}
+    	
+    	return user;
+	}
+
+
+    
     @Transactional(readOnly = false)
     @SuppressWarnings("unchecked")
 	public List<User> getAllUsuario() {

@@ -1,13 +1,13 @@
 package kachuelitos.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import kachuelitos.persistence.entity.User;
 import kachuelitos.service.UserManager;
 
 import org.apache.commons.logging.Log;
@@ -25,22 +25,26 @@ public class LoginController {
 	@Autowired
 	private UserManager userManager;
 
-	@RequestMapping(value="/hello.htm")
-	    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
-	            throws ServletException, IOException {
+	@RequestMapping(value = "/hello.htm")
+	public ModelAndView handleRequest(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 
-	        logger.info("Returning dashboard view");
+		logger.info("Haciendo login");
 
-	        String s = "wilder2";
-	        
-	        Map<String, Object> mapUser = new HashMap<String, Object>();
-	        
-	     System.out.println("salidasssssss"+userManager.getUsers().get(0).getDniuser());   
-	        
-	        mapUser.put("userAll", userManager.getUsers());
-	        mapUser.put("prueba", "wilder");
-	        
-	        return new ModelAndView("dashboard","salida",mapUser);
-	        
-	    }
+		String sDni = (String) request.getAttribute("dni");
+		String sPassword = (String) request.getAttribute("password");
+		ModelAndView modelview;
+
+		if (userManager.validateUser(sDni, sPassword)) {
+
+			modelview = userManager.sessionInit(request, response);
+
+		}
+
+		else {
+			modelview = new ModelAndView("login.jsp");
+		}
+
+		return modelview;
+	}
 }
