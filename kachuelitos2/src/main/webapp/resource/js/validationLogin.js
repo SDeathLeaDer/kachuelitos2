@@ -14,10 +14,11 @@ function validation(element) {
 		var erdni = /^[0-9^A-Z]{8,8}$/;
 
 		if (erdni.test(vdni)) {
-			image.src = "images/yes_check.png";
+			
+			//image.src = "resource/images/yes_check.png";
 			isCorrectDni = 1;
 		} else {
-			image.src = "images/no_check.png";
+		//	image.src = "resource/images/no_check.png";
 			isCorrectDni = 0;
 		}
 	}
@@ -28,10 +29,10 @@ function validation(element) {
 		var erepassword = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$/;
 
 		if (erepassword.test(vpassword)) {
-			image.src = "images/yes_check.png";
+			image.src = "resource/images/yes_check.png";
 			isCorrectPassword = 1;
 		} else {
-			image.src = "images/no_check.png";
+			image.src = "resource/images/no_check.png";
 			isCorrectPassword = 0;
 		}
 	}

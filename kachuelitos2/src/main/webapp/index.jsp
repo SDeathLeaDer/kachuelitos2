@@ -17,15 +17,15 @@
 <c:url var="estiloscss" value="/resource/styles/page.css"></c:url>
 <link rel="stylesheet" type="text/css" href="${estiloscss}">
 
-
 </head>
 <body>
-
 	<div id="login">
 
-		<form action="login.htm" method="post">
+		<form action="login.htm" method="get">
 			<button id="buttonTop">Iniciar Sesión</button>
 		</form>
+		
+	
 	</div>
 
 	<div id="header" align="center">

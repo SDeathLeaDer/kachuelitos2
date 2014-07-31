@@ -12,16 +12,18 @@ function validation(element) {
 	
 	var messageAlert = document.getElementById('imessage');
 
+	var path = "resource/imagenes/";
+	
 	if (element == 'idni') {
 		var vdni = document.getElementById('idni').value;
 		var image = document.getElementById("dni_check");
 		var erdni = /^[0-9^A-Z]{8,8}$/;
 
 		if (erdni.test(vdni)) {
-			image.src = "images/yes_check.png";
+			image.src = path+"yes_check.png";
 			isCorrectDni = 1;
 		} else {
-			image.src = "images/no_check.png";
+			image.src = path+"no_check.png";
 			isCorrectDni = 0;
 		}
 	}
@@ -32,10 +34,10 @@ function validation(element) {
 		var erubigeo = /^[0-9^A-Z]{6,6}$/;
 
 		if (erubigeo.test(vubigeo)) {
-			image.src = "images/yes_check.png";
+			image.src = path+"yes_check.png";
 			isCorrectUbigeo = 1;
 		} else {
-			image.src = "images/no_check.png";
+			image.src = path+"no_check.png";
 			isCorrectUbigeo = 0;
 		}
 	}
@@ -46,10 +48,10 @@ function validation(element) {
 		var ername = /^[A-Z|a-z]{2,40}$/;
 
 		if (ername.test(vname)) {
-			image.src = "images/yes_check.png";
+			image.src = path+"yes_check.png";
 			isCorrectName = 1;
 		} else {
-			image.src = "images/no_check.png";
+			image.src = path+"no_check.png";
 			isCorrectName = 0;
 		}
 	}
@@ -60,10 +62,10 @@ function validation(element) {
 		var erlastname = /^[A-Z|a-z]{2,40}$/;
 
 		if (erlastname.test(vlastname)) {
-			image.src = "images/yes_check.png";
+			image.src = path+"yes_check.png";
 			isCorrectLastName = 1;
 		} else {
-			image.src = "images/no_check.png";
+			image.src = path+"no_check.png";
 			isCorrectLastName = 0;
 		}
 	}
@@ -74,10 +76,10 @@ function validation(element) {
 		var eremail = /^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/;
 
 		if (eremail.test(vemail)) {
-			image.src = "images/yes_check.png";
+			image.src = path+"yes_check.png";
 			isCorrectEmail = 1;
 		} else {
-			image.src = "images/no_check.png";
+			image.src = path+"no_check.png";
 			isCorrectEmail = 0;
 		}
 	}
@@ -89,10 +91,10 @@ function validation(element) {
 		var erepassword = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$/;
 
 		if (erepassword.test(vpassword)) {
-			image.src = "images/yes_check.png";
+			image.src = path+"yes_check.png";
 			isCorrectPassword = 1;
 		} else {
-			image.src = "images/no_check.png";
+			image.src = path+"/no_check.png";
 			isCorrectPassword = 0;
 		}
 	}

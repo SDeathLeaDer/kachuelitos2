@@ -1,5 +1,11 @@
 package kachuelitos.controller;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import kachuelitos.persistence.entity.User;
 import kachuelitos.service.UserManager;
 
@@ -20,9 +26,15 @@ public class LoginController {
 
 	@Autowired
 	private UserManager userManager;
-/*
-	@RequestMapping(value = "/login.htm")
-	public ModelAndView handleRequest(HttpServletRequest request,
+	
+	@RequestMapping(value = "/login.htm", method = RequestMethod.GET)
+	public ModelAndView formLogin(){
+
+		return new ModelAndView("login", "user", new User());
+	}
+	
+	@RequestMapping(value = "/validateLogin.htm", method = RequestMethod.POST)
+	public ModelAndView validateLogin(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
 		logger.info("Haciendo login");
@@ -46,24 +58,46 @@ public class LoginController {
 
 		return modelview;
 	}
-*/
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	
+	
+/*
+	@RequestMapping(value = "/login.htm", method = RequestMethod.GET)
 	public ModelAndView formLogin() {
-		
-		System.out.println("haciendo cambio");
-		
+
 		return new ModelAndView("login", "command", new User());
-		
+
 	}
 
-	@RequestMapping(value = "/validateLogin", method = RequestMethod.POST)
+	
+	@RequestMapping(value = "/validateLogin.htm", method = RequestMethod.POST)
 	public String validateLogin(@ModelAttribute("SpringWeb") User user,
 			ModelMap model) {
-	//	model.addAttribute("name", student.getName());
-	//	model.addAttribute("age", student.getAge());
-	//	model.addAttribute("id", student.getId());
 
-		return "result";
+		//model.addAttribute("dni", user.getDniuser());
+		//model.addAttribute("password", user.getContrasenhaUser());
+		
+		String sDni = (String) request.getParameter("idni");
+		String sPassword = (String) request.getParameter("spassword");
+		ModelAndView modelview;
+
+		System.out.println("ta aqui");
+		System.out.println(sDni + "-" + sPassword);
+
+		if (userManager.validateUser(sDni, sPassword)) {
+
+			modelview = userManager.sessionInit(request, response);
+
+		}
+
+		else {
+			modelview = new ModelAndView("login");
+		}
+		
+		
+
+		return "dashboard";
 	}
+
+*/
 
 }

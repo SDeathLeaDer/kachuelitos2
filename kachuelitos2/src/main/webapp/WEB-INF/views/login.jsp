@@ -7,27 +7,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login de Usuario</title>
 
-<!--  
-<link rel="stylesheet" href="styles/page.css" type="text/css"
-	media="screen" title="no title" charset="utf-8">
-
--->
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <c:url var="estiloscss" value="/resource/styles/page.css"></c:url>
 <link rel="stylesheet" type="text/css" href="${estiloscss}">
 
 
-<script type="text/javascript" src="js/validationLogin.js"></script>
+<script type="text/javascript" src="resource/js/validationLogin.js"></script>
 
 </head>
 <body>
 	<div id="header" align="center">
-		<img id='mainlogo' alt='logo' src='resource/images/logo.jpg' width='300px'>
+		<img id='mainlogo' alt='logo' src='resource/images/logo.jpg'
+			width='300px'>
 	</div>
 
 	<div id='main' align='center'>
 
-		<form action="login.htm" method="get"
+		<form action="validateLogin.htm" method="post"
 			onsubmit="return validationSubmit();">
 
 			<table id="tablelogin" cellspacing="0px">
