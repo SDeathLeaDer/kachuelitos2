@@ -7,12 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login de Usuario</title>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <c:url var="estiloscss" value="/resource/styles/page.css"></c:url>
 <link rel="stylesheet" type="text/css" href="${estiloscss}">
 
-
-<script type="text/javascript" src="resource/js/validationLogin.js"></script>
+<c:url var="validationjs" value="/resource/js/validationLogin.js"></c:url>
+<script type="text/javascript" src="${validationjs}"></script>
 
 </head>
 <body>
@@ -53,24 +52,27 @@
 				</tr>
 				<tr>
 					<td colspan="3" align="center" class="tdLabel"><div
+							id="imessageregistration">
+							<c:out value="${smessage}" />
+						</div></td>
+				</tr>
+				<tr>
+					<td colspan="3" align="center" class="tdLabel"><div
 							id="imessage"></div></td>
 				</tr>
 			</table>
 
 		</form>
 
-		<form action='registration.jsp' method='get'>
+		<form action='registration.htm' method='get'>
 			<p class='maincontent2'>
 				¿Quiere ser parte de la red de trabajadores de 101 Kachuelitos?
 				<button>Unete</button>
 			</p>
 		</form>
 	</div>
-	<footer>
-	<div align='center'>
-		<hr width='50%'>
+	<div id="footercontent" align='center'>
 		<p>Derechos Reserv@dos 101 Kachuelitos 2014</p>
 	</div>
-	</footer>
 </body>
 </html>

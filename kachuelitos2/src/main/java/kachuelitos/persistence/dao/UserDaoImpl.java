@@ -23,10 +23,13 @@ public class UserDaoImpl implements UserDao {
     }
     
     @Transactional(readOnly = false)
-	public void add(User usuario) {
+	public User add(User user) {
 		// TODO Auto-generated method stub
 
+    	return em.merge(user);
+    
 	}
+    
     @Transactional(readOnly = false)
 	public void edit(User usuario) {
 		// TODO Auto-generated method stub
@@ -49,6 +52,7 @@ public class UserDaoImpl implements UserDao {
 	@Transactional(readOnly = false)
 	public User getUsuarioDniPassword(String sDni, String sPassword) {
 		// TODO Auto-generated method stub
+    	
     	User user = null;
     
     	System.out.print("salida"+"select u from User u where u.dniuser=:"+sDni+" and u.contrasenhaUser=:"+ sPassword);
@@ -70,11 +74,8 @@ public class UserDaoImpl implements UserDao {
     	}
     	
     	return user;
-    	
-
-    	
+        	
 	}
-
 
     
     @Transactional(readOnly = false)
@@ -82,7 +83,6 @@ public class UserDaoImpl implements UserDao {
 	public List<User> getAllUsuario() {
 		
 	    return em.createQuery("select u from User u ").getResultList();
- 
 	       
 	}
 

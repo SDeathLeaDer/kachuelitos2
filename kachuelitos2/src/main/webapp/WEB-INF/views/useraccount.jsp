@@ -25,8 +25,9 @@
 
 			<div id='buttonTop'>
 					Bienvenido
-					<c:out value="${user.nombreUser}" />
-					<c:out value="${user.apellidoUser}" />
+					
+					<c:out value="${sessionScope.user.nombreUser}" />
+					<c:out value="${sessionScope.user.apellidoUser}" />
 		
 				<button>Cerrar Sesion</button>
 			</div>
@@ -36,10 +37,10 @@
 
 	<div id='tabContainer'>
 		<ul id='topTab'>
-			<li><a href='useraccount.jsp' title='Home' class='current'>Mi
+			<li><a href='useraccount.htm' title='Home' class='current'>Mi
 					Cuenta</a></li>
-			<li><a href='userservices.jsp' title='Home'>Servicios</a></li>
-			<li><a href='userworks.jsp' title='Home'>Mis Trabajos</a></li>
+			<li><a href='userservices.htm' title='Home'>Servicios</a></li>
+			<li><a href='userworks.htm' title='Home'>Mis Trabajos</a></li>
 			<%--  <li><a href='usercv.jsp' title='Home' >Mi CV</a></li> --%>
 		</ul>
 	</div>
@@ -95,11 +96,10 @@
 
 		</form>
 	</div>
-	<footer>
-	<div align='center'>
-		<hr width='50%'></hr>
+	
+	<div  id="footercontent" align='center'>
 		<p>Derechos Reserv@dos 101 Kachuelitos 2014</p>
 	</div>
-	</footer>
+
 </body>
 </html>

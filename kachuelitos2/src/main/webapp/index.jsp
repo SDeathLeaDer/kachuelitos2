@@ -40,7 +40,7 @@
 			</p>
 			<button>Buscar</button>
 		</form>
-		<form action="registration.jsp">
+		<form action="registration.htm">
 			<p class="maincontent2">
 				¿Quiere ser parte de la red de trabajadores de 101 Kachuelitos o
 				quieres contratar a alguien?
@@ -48,12 +48,10 @@
 			</p>
 		</form>
 	</div>
-	<footer>
-	<div align="center">
-		<hr width="50%">
+
+	<div id="footercontent" align="center">
 		<p>Derechos Reserv@dos 101 Kachuelitos 2014</p>
 	</div>
-	</footer>
 
 </body>
 </html>

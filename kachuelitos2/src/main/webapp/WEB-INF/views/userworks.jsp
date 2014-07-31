@@ -3,28 +3,32 @@
 
 <%@ include file="/WEB-INF/views/include.jsp"%>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Trabajos</title>
 
-<link rel="stylesheet" href="styles/tab.css" type="text/css"
-	media="screen" title="no title" charset="utf-8">
+<c:url var="estiloscss" value="/resource/styles/page.css"></c:url>
+<link rel="stylesheet" type="text/css" href="${estiloscss}">
 
-<link rel="stylesheet" href="styles/page.css" type="text/css"
-	media="screen" title="no title" charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<c:url var="estiloscss2" value="/resource/styles/tab.css"></c:url>
+<link rel="stylesheet" type="text/css" href="${estiloscss2}">
+
 
 </head>
 <body>
 	<div id='header'>
-		<img id='logo' src='images/logo.jpg' width='250px' />
-		<form action='actionLogOut' method='post'>
+		<img id='logo' src='resource/images/logo.jpg' width='250px' />
+		<form action='loginout.htm' method='post'>
 
 			<div id='buttonTop'>
-				Bienvenido <s:property value="#session.user.name"/>			
-				<s:property value="#session.user.lasname" />
+				Bienvenido
+				<c:out value="${sessionScope.user.nombreUser}" />
+				<c:out value="${sessionScope.user.apellidoUser}" />
+
+
 				<button>Cerrar Sesion</button>
 			</div>
 		</form>
@@ -32,9 +36,10 @@
 
 	<div id='tabContainer'>
 		<ul id='topTab'>
-			<li><a href='useraccount.jsp' title='Home' class='current'>Mi Cuenta</a></li>
-			<li><a href='userservices.jsp' title='Home'>Servicios</a></li>
-			<li><a href='userworks.jsp' title='Home'>Mis Trabajos</a></li>
+			<li><a href='useraccount.htm' title='Home'>Mi Cuenta</a></li>
+			<li><a href='userservices.htm' title='Home'>Servicios</a></li>
+			<li><a href='userworks.htm' title='Home' class='current'>Mis
+					Trabajos</a></li>
 			<%--  <li><a href='usercv.jsp' title='Home' >Mi CV</a></li> --%>
 		</ul>
 	</div>
@@ -45,11 +50,9 @@
 			<s:property value="user.lasname" />
 		</p>
 	</div>
-	<footer>
-	<div align='center'>
-		<hr width='50%'></hr>
+	<div id="footercontent" align='center'>
 		<p>Derechos Reserv@dos 101 Kachuelitos 2014</p>
 	</div>
-	</footer>
+
 </body>
 </html>

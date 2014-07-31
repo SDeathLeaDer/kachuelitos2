@@ -20,23 +20,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class LoginController {
+public class UserWorksController {
 
 	protected final Log logger = LogFactory.getLog(getClass());
 
 	@Autowired
 	private UserManager userManager;
 	
-	@RequestMapping(value = "/login.htm", method = RequestMethod.GET)
-	public ModelAndView formLogin(){
+	@RequestMapping(value = "/userworks.htm", method = RequestMethod.GET)
+	public ModelAndView formUserWorks(){
 
-		return new ModelAndView("login");
+		return new ModelAndView("userworks");
 	}
 	
-	@RequestMapping(value = "/validateLogin.htm", method = RequestMethod.POST)
-	public ModelAndView validateLogin(HttpServletRequest request,
+	@RequestMapping(value = "/adduserworks.htm", method = RequestMethod.POST)
+	public ModelAndView addUseWorks(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
+		/*
 		logger.info("Haciendo login");
 
 		String sDni = (String) request.getParameter("idni");
@@ -47,7 +48,9 @@ public class LoginController {
 		System.out.println(sDni + "-" + sPassword);
 
 		if (userManager.validateUser(sDni, sPassword)) {
+
 			modelview = userManager.sessionInit(request, response);
+
 		}
 
 		else {
@@ -55,6 +58,9 @@ public class LoginController {
 		}
 
 		return modelview;
+				*/
+
+		return null;
 	}
 	
 	

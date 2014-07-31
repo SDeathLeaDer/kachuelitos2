@@ -12,7 +12,7 @@ function validation(element) {
 	
 	var messageAlert = document.getElementById('imessage');
 
-	var path = "resource/imagenes/";
+	var path = "resource/images/";
 	
 	if (element == 'idni') {
 		var vdni = document.getElementById('idni').value;

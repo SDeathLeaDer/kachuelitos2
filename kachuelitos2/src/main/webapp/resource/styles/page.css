@@ -83,7 +83,7 @@ table#tablelogin
 	margin-top: 50px;
 }
 
-.footer {
+#footercontent {
 	width: 960px;
 	height: 80px;
 	text-align: center;

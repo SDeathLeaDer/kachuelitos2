@@ -28,6 +28,19 @@ public class SimpleUserManager implements UserManager {
         this.userDao = userDao;
         
     }
+    
+    public boolean addUser(User user){
+    	
+    	boolean boutput = true;
+    	
+    	user = userDao.add(user);
+    	if(user == null ){
+    		boutput = false;
+    	}
+    	
+    	return boutput;  
+    }
+    
 
     public boolean validateUser(String sDni, String sPassword){
     	
@@ -44,15 +57,14 @@ public class SimpleUserManager implements UserManager {
     
     public ModelAndView sessionInit(HttpServletRequest request, HttpServletResponse response)
 	{
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
         session.setMaxInactiveInterval(30*60);
         Cookie userName = new Cookie("user", user.getNombreUser());
         userName.setMaxAge(30*60);
         response.addCookie(userName);
         
-    
-        return new ModelAndView("useraccount","user", user);
+        return new ModelAndView("useraccount");
         
 	}
 	
@@ -60,8 +72,7 @@ public class SimpleUserManager implements UserManager {
 	{
 		request.getSession().invalidate();
 		
-	     return new ModelAndView("login");
-		
+	    return new ModelAndView("logout");
 	}
     
     public List<User> getUsers() {

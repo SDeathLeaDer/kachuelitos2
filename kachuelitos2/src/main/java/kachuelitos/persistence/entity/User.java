@@ -45,6 +45,22 @@ public class User implements java.io.Serializable {
 		this.direccionUser = direccionUser;
 		this.trabajador = trabajador;
 	}
+	
+	public User(Integer dniuser, String contrasenhaUser, String nombreUser, String apellidoUser,
+			String correoUser, int ubigeoIdUbigeo1, String telefonoUser,
+			String direccionUser, Boolean trabajador) {
+
+		this.dniuser = dniuser;
+		this.contrasenhaUser = contrasenhaUser;
+		this.nombreUser = nombreUser;
+		this.apellidoUser = apellidoUser;
+		this.correoUser = correoUser;
+		this.ubigeoIdUbigeo1 = ubigeoIdUbigeo1;
+		this.telefonoUser = telefonoUser;
+		this.direccionUser = direccionUser;
+		this.trabajador = trabajador;
+	}
+	
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)

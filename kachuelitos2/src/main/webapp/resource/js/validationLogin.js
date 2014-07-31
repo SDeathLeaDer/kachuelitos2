@@ -6,6 +6,7 @@ var isCorrectPassword = 1;
 
 function validation(element) {
 	
+
 	var messageAlert = document.getElementById('imessage');
 
 	if (element == 'idni') {
@@ -13,8 +14,7 @@ function validation(element) {
 		var image = document.getElementById("dni_check");
 		var erdni = /^[0-9^A-Z]{8,8}$/;
 
-		if (erdni.test(vdni)) {
-			
+		if (erdni.test(vdni)) {			
 			image.src = "resource/images/yes_check.png";
 			isCorrectDni = 1;
 		} else {

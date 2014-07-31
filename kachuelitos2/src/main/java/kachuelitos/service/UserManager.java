@@ -14,7 +14,10 @@ public interface UserManager extends Serializable {
 
     public List<User> getUsers();
     public boolean validateUser(String sDni, String sPassword); 
+    public boolean addUser(User user); 
+    
     public ModelAndView sessionInit(HttpServletRequest request, HttpServletResponse response);
 	public ModelAndView sessionClose(HttpServletRequest request);
+	
 
 }

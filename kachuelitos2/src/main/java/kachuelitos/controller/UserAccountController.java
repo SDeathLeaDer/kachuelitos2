@@ -20,25 +20,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class LoginController {
+public class UserAccountController {
 
 	protected final Log logger = LogFactory.getLog(getClass());
 
 	@Autowired
 	private UserManager userManager;
 	
-	@RequestMapping(value = "/login.htm", method = RequestMethod.GET)
-	public ModelAndView formLogin(){
+	@RequestMapping(value = "/useraccount.htm", method = RequestMethod.GET)
+	public ModelAndView formUserAccount(){
 
-		return new ModelAndView("login");
+		return new ModelAndView("useraccount");
 	}
 	
-	@RequestMapping(value = "/validateLogin.htm", method = RequestMethod.POST)
-	public ModelAndView validateLogin(HttpServletRequest request,
+	@RequestMapping(value = "/updateuseraccount.htm", method = RequestMethod.POST)
+	public ModelAndView updateUserAccount(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
+		/*
 		logger.info("Haciendo login");
 
+		
 		String sDni = (String) request.getParameter("idni");
 		String sPassword = (String) request.getParameter("spassword");
 		ModelAndView modelview;
@@ -47,55 +49,19 @@ public class LoginController {
 		System.out.println(sDni + "-" + sPassword);
 
 		if (userManager.validateUser(sDni, sPassword)) {
+
 			modelview = userManager.sessionInit(request, response);
+
 		}
 
 		else {
 			modelview = new ModelAndView("login");
 		}
-
+	
 		return modelview;
+			*/
+		
+		return null;
 	}
 	
-	
-/*
-	@RequestMapping(value = "/login.htm", method = RequestMethod.GET)
-	public ModelAndView formLogin() {
-
-		return new ModelAndView("login", "command", new User());
-
-	}
-
-	
-	@RequestMapping(value = "/validateLogin.htm", method = RequestMethod.POST)
-	public String validateLogin(@ModelAttribute("SpringWeb") User user,
-			ModelMap model) {
-
-		//model.addAttribute("dni", user.getDniuser());
-		//model.addAttribute("password", user.getContrasenhaUser());
-		
-		String sDni = (String) request.getParameter("idni");
-		String sPassword = (String) request.getParameter("spassword");
-		ModelAndView modelview;
-
-		System.out.println("ta aqui");
-		System.out.println(sDni + "-" + sPassword);
-
-		if (userManager.validateUser(sDni, sPassword)) {
-
-			modelview = userManager.sessionInit(request, response);
-
-		}
-
-		else {
-			modelview = new ModelAndView("login");
-		}
-		
-		
-
-		return "dashboard";
-	}
-
-*/
-
 }
