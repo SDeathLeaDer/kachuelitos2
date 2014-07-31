@@ -24,7 +24,7 @@ public class SimpleUserManager implements UserManager {
     
     private User user;
 
-    public void setProductDao(UserDao userDao) {
+    public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
         
     }

@@ -27,6 +27,14 @@ public class LoginController {
 	@Autowired
 	private UserManager userManager;
 	
+	public UserManager getUserManager() {
+		return userManager;
+	}
+
+	public void setUserManager(UserManager userManager) {
+		this.userManager = userManager;
+	}
+
 	@RequestMapping(value = "/login.htm", method = RequestMethod.GET)
 	public ModelAndView formLogin(){
 
@@ -39,8 +47,8 @@ public class LoginController {
 
 		logger.info("Haciendo login");
 
-		String sDni = (String) request.getParameter("idni");
-		String sPassword = (String) request.getParameter("spassword");
+		String sDni = (String) request.getAttribute("idni");
+		String sPassword = (String) request.getAttribute("spassword");
 		ModelAndView modelview;
 
 		System.out.println("ta aqui");
