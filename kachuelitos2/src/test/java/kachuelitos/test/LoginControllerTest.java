@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
 public class LoginControllerTest {
-	
+	/*
 	  @Test
 	    public void testHandleRequestView() throws Exception{		
 		    LoginController controller = new LoginController();
@@ -18,4 +18,6 @@ public class LoginControllerTest {
 	        assertEquals("wilder",  modelAndView.getModel().get("prueba"));
 
 	    }
+	    
+	    */
 }

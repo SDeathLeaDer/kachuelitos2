@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/views/include.jsp" %>
+<%@ include file="/WEB-INF/views/include.jsp"%>
 
 <%-- Redirected because we can't set the welcome page to a virtual URL. --%>
 
@@ -16,44 +16,44 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <c:url var="estiloscss" value="/resource/styles/page.css"></c:url>
 <link rel="stylesheet" type="text/css" href="${estiloscss}">
-	
-	
+
+
 </head>
 <body>
 
-<div id="login">
+	<div id="login">
 
-	<form action="login.jsp" method="post">
-		<button id="buttonTop">Iniciar Sesión</button>
-	</form>
-</div>
+		<form action="login.htm" method="post">
+			<button id="buttonTop">Iniciar Sesión</button>
+		</form>
+	</div>
 
-<div id="header" align="center">
-	<img id="mainlogo" src="resource/images/logo.jpg" width="300px">
-</div>
+	<div id="header" align="center">
+		<img id="mainlogo" src="resource/images/logo.jpg" width="300px">
+	</div>
 
-<div align="center" id="main">
-	<form action="/Kachuelitos/EmployeeSearch" method="get">
-		<p class="maincontent">¿Qué tipo de trabajador esta buscando?</p>
-		<p class="maincontent">
-			<input name="typework">
-		</p>
-		<button>Buscar</button>
-	</form>
-	<form action="registration.jsp">
-		<p class="maincontent2">
-			¿Quiere ser parte de la red de trabajadores de 101 Kachuelitos o
-			quieres contratar a alguien?
-			<button >Unete</button>
-		</p>
-	</form>
-</div>
-<footer>
-<div align="center">
-	<hr width="50%">
-	<p>Derechos Reserv@dos 101 Kachuelitos 2014</p>
-</div>
-</footer>
+	<div align="center" id="main">
+		<form action="/Kachuelitos/EmployeeSearch" method="get">
+			<p class="maincontent">¿Qué tipo de trabajador esta buscando?</p>
+			<p class="maincontent">
+				<input name="typework">
+			</p>
+			<button>Buscar</button>
+		</form>
+		<form action="registration.jsp">
+			<p class="maincontent2">
+				¿Quiere ser parte de la red de trabajadores de 101 Kachuelitos o
+				quieres contratar a alguien?
+				<button>Unete</button>
+			</p>
+		</form>
+	</div>
+	<footer>
+	<div align="center">
+		<hr width="50%">
+		<p>Derechos Reserv@dos 101 Kachuelitos 2014</p>
+	</div>
+	</footer>
 
 </body>
 </html>
