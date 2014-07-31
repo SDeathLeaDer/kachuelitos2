@@ -15,10 +15,10 @@ function validation(element) {
 
 		if (erdni.test(vdni)) {
 			
-			//image.src = "resource/images/yes_check.png";
+			image.src = "resource/images/yes_check.png";
 			isCorrectDni = 1;
 		} else {
-		//	image.src = "resource/images/no_check.png";
+			image.src = "resource/images/no_check.png";
 			isCorrectDni = 0;
 		}
 	}
