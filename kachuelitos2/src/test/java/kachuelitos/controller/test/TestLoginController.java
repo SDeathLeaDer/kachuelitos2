@@ -6,7 +6,7 @@ import kachuelitos.controller.LoginController;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
-public class LoginControllerTest {
+public class TestLoginController {
 	/*
 	  @Test
 	    public void testHandleRequestView() throws Exception{		

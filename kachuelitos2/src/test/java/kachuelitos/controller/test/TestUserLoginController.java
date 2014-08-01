@@ -22,7 +22,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-public class UserLoginControllerTest {
+public class TestUserLoginController {
 
 	@Test
 	public void addRegistrationtest()  throws Exception{

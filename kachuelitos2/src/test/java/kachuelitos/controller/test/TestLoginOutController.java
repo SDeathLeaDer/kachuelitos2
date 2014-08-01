@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class LoginOutController {
+public class TestLoginOutController {
 
 	@Test
 	public void test() {

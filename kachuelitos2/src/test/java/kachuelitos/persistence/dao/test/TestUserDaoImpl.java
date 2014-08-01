@@ -14,7 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 //@ContextConfiguration({ "file:/src/test/java/resources/test-context.xml" })
-public class UserDaoImplTest {
+public class TestUserDaoImpl {
 	private ApplicationContext context;
     private UserDao userDao;
     

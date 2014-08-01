@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-public class UserRegistrationControllerTest {
+public class TestUserRegistrationController {
 
 	@Test
 	public void testaddRegistration()  throws Exception{
