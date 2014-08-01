@@ -1,50 +1,55 @@
 package kachuelitos.controller.test;
 
-import static org.junit.Assert.*;
-
-import java.net.URI;
-
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-
-import org.junit.Test;
-
+import static org.junit.Assert.assertEquals;
 import kachuelitos.controller.LoginController;
-import kachuelitos.controller.UserRegistrationController;
 import kachuelitos.persistence.dao.UserDao;
-import kachuelitos.persistence.dao.UserDaoImpl;
-import kachuelitos.persistence.entity.User;
 import kachuelitos.service.SimpleUserManager;
-import kachuelitos.service.UserManager;
 
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpRequest;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 
 public class TestUserLoginController {
 
+    private ApplicationContext context;
+    private UserDao userDao;
+    
+
+	@Before
+	public void setUp() throws Exception {
+		context = new ClassPathXmlApplicationContext(
+				"classpath:test-context.xml");
+		userDao = (UserDao) context.getBean("userDao");
+	}
+
 	@Test
-	public void addRegistrationtest()  throws Exception{
-		
+	public void addRegistrationtest() throws Exception {
+
 		String idni = "42938470";
 		String spassword = "123ABCDE";
-		HttpServletRequest httpserrequest = new NullHttpServletRequest();
-		
-		httpserrequest.setAttribute("idni", idni);
-		httpserrequest.setAttribute("spassword", spassword);
 
-		
-		UserDaoImpl user = new UserDaoImpl();
+		MockHttpServletRequest httprequest = new MockHttpServletRequest();
+		httprequest.setMethod("POST");
+
+		MockHttpServletResponse httpresponse = new MockHttpServletResponse();
+
+		httprequest.setAttribute("idni", idni);
+		httprequest.setAttribute("spassword", spassword);
+
 		SimpleUserManager userManager = new SimpleUserManager();
 
-		userManager.setUserDao(user);
-		
+		userManager.setUserDao(userDao);
+
 		LoginController controller = new LoginController();
 		controller.setUserManager(userManager);
-		
-		ModelAndView mensaje = controller.validateLogin(httpserrequest, null);
-		assertEquals("useraccount",mensaje.getViewName());
+
+		ModelAndView mensaje = controller.validateLogin(httprequest, httpresponse);
+		assertEquals("useraccount", mensaje.getViewName());
+
 	}
 
 }
