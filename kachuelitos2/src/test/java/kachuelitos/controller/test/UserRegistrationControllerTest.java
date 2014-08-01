@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserRegistrationControllerTest {
 
 	@Test
-	public void addRegistrationtest()  throws Exception{
+	public void testaddRegistration()  throws Exception{
 		UserDaoImpl user = new UserDaoImpl();
 		
 		SimpleUserManager userManager = new SimpleUserManager();
@@ -31,8 +31,8 @@ public class UserRegistrationControllerTest {
 		UserRegistrationController controller = new UserRegistrationController();
 		controller.setUserManager(userManager);
 		
-//		ModelAndView mensaje = controller.addRegistration(null, null);
-//		assertEquals(mensaje, );
+		ModelAndView mensaje = controller.addRegistration(null, null);
+		assertNotNull(mensaje.getViewName());
 	}
 
 }
