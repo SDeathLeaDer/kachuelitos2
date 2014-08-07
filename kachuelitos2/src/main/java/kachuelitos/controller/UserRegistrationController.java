@@ -24,21 +24,17 @@ public class UserRegistrationController {
 
 	@Autowired
 	private UserManager userManager;
-
 	public UserManager getUserManager() {
 		return userManager;
 	}
-
 	public void setUserManager(UserManager userManager) {
 		this.userManager = userManager;
 	}
-
 	@RequestMapping(value = "/registration.htm", method = RequestMethod.GET)
 	public ModelAndView formRegistration(){
 
 		return new ModelAndView("registration");
 	}
-
 	@RequestMapping(value = "/addregistration.htm", method = RequestMethod.POST)
 	public ModelAndView addRegistration(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

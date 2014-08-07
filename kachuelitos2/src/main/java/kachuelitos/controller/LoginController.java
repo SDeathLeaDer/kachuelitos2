@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 @Controller
 public class LoginController {
 
@@ -26,21 +25,17 @@ public class LoginController {
 
 	@Autowired
 	private UserManager userManager;
-	
 	public UserManager getUserManager() {
 		return userManager;
 	}
-
 	public void setUserManager(UserManager userManager) {
 		this.userManager = userManager;
 	}
-
 	@RequestMapping(value = "/login.htm", method = RequestMethod.GET)
 	public ModelAndView formLogin(){
 
 		return new ModelAndView("login");
 	}
-	
 	@RequestMapping(value = "/validateLogin.htm", method = RequestMethod.POST)
 	public ModelAndView validateLogin(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

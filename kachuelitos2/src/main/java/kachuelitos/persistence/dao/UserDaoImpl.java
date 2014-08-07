@@ -13,15 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository(value = "userDao")
 public class UserDaoImpl implements UserDao {
-
-
     private EntityManager em = null;
-
     @PersistenceContext
     public void setEntityManager(EntityManager em) {
         this.em = em;
     }
-    
     @Transactional(readOnly = false)
 	public User add(User user) {
 		// TODO Auto-generated method stub
@@ -29,25 +25,21 @@ public class UserDaoImpl implements UserDao {
     	return em.merge(user);
     
 	}
-    
     @Transactional(readOnly = false)
 	public void edit(User usuario) {
 		// TODO Auto-generated method stub
 
 	}
-    
     @Transactional(readOnly = false)
 	public void delete(int usuarioId) {
 		// TODO Auto-generated method stub
 
 	}
-    
-    @Transactional(readOnly = false)
+     @Transactional(readOnly = false)
 	public User getUsuario(int usuarioId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
     @SuppressWarnings("unchecked")
 	@Transactional(readOnly = false)
 	public User getUsuarioDniPassword(String sDni, String sPassword) {
