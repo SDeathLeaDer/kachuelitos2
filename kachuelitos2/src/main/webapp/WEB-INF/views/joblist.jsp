@@ -38,7 +38,7 @@
 		<ul id='topTab'>
 			<li><a href='useraccount.htm' title='Home' class='current'>Búsqueda</a></li>
 			<li><a href='userservices.htm' title='Home'>Otro</a></li>
-			<li><a href='userworks.htm' title='Home'>Contáctenos</a></li>
+			<li><a href='contact2.htm' title='Home'>Contáctenos</a></li>
 			<%--  <li><a href='usercv.jsp' title='Home' >Mi CV</a></li> --%>
 		</ul>
 	</div>
