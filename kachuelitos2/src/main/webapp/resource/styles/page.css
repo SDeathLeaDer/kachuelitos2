@@ -9,7 +9,6 @@ body {
 	margin: auto;
 	width: 960px;
 	height: 100%;
-
 }
 
 #header {
@@ -41,38 +40,40 @@ body {
 	margin-right: 40px
 }
 
-
 #main {
 	width: 960px;
 	height: 250px;
 	margin-top: 40px;
 	margin-bottom: 40px;
-	
 }
 
 #main2 {
 	width: 960px;
 	height: 450px;
 	margin-top: 10px;
-	margin-bottom: 10px;	
+	margin-bottom: 10px;
 }
 
 #content {
 	width: 954px;
 	height: 500px;
 	background: white;
-	border-style:groove;
-	border-color:#010E6E;
+	border-style: groove;
+	border-color: #010E6E;
 }
 
-table#tablelogin
-{
-    border-collapse:separate;
-    border-spacing:0 10px;
-
-    
+#content2 {
+	width: 954px;
+	height: 600px;
+	background: white;
+	border-style: groove;
+	border-color: #010E6E;
 }
 
+table#tablelogin {
+	border-collapse: separate;
+	border-spacing: 0 10px;
+}
 
 .maincontent {
 	margin-top: 10px;
@@ -92,5 +93,42 @@ table#tablelogin
 
 button {
 	width: 100px;
-	height: 30px; 	
+	height: 30px;
+}
+
+#contentBanner {
+	width: 248px;
+	float: right;
+	padding: 20px;
+	height: 560px;
+}
+
+#contentSearh {
+	width: 710px;
+	float: left;
+}
+
+#socialnetwork {
+	height: 400px;
+	width: 100%;
+}
+
+#other {
+	height: 80px;
+	width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+tr { 
+  border: solid;
+  border-width: 1px 0;
+}
+
+tr:first-child {
+  border-top: none;
+}
+tr:last-child {
+  border-bottom: none;
 }

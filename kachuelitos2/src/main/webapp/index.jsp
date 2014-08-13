@@ -33,7 +33,7 @@
 	</div>
 
 	<div align="center" id="main">
-		<form action="/Kachuelitos/EmployeeSearch" method="get">
+		<form action="searchjobs.htm" method="get">
 			<p class="maincontent">¿Qué tipo de trabajador esta buscando?</p>
 			<p class="maincontent">
 				<input name="typework">
