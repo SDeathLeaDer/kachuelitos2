@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kachuelitos.persistence.entity.User;
-
 import org.springframework.web.servlet.ModelAndView;
 
 public interface UserManager extends Serializable {
@@ -19,5 +18,4 @@ public interface UserManager extends Serializable {
     public ModelAndView sessionInit(HttpServletRequest request, HttpServletResponse response);
 	public ModelAndView sessionClose(HttpServletRequest request);
 	
-
 }

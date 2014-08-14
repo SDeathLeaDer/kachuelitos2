@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository(value = "userDao")
 public class UserDaoImpl implements UserDao {
+	
     private EntityManager em = null;
     @PersistenceContext
     public void setEntityManager(EntityManager em) {
