@@ -2,7 +2,6 @@ package kachuelitos.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kachuelitos.service.UserManager;
-import kachuelitos.webservices.Entries;
 import kachuelitos.webservices.Page;
 
 import org.apache.commons.logging.Log;
@@ -19,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,7 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class JobListController {
 
 	protected final Log logger = LogFactory.getLog(getClass());
-	private  String  idPage = "1659292967629525";
+	private String idPage = "1659292967629525";
 
 	@Autowired
 	private UserManager userManager;
@@ -37,24 +36,32 @@ public class JobListController {
 		// Haciendo una peticion rest a fb
 
 		RestTemplate restTemplate = new RestTemplate();
+		ModelAndView mv = new ModelAndView();
+		
 		Page page = restTemplate.getForObject(
-				"https://www.facebook.com/feeds/page.php?format=json&id="+idPage, Page.class);
+				"https://www.facebook.com/feeds/page.php?format=json&id="
+						+ idPage, Page.class);
 
-//		System.out.println("Name:    " + page.getName());
-//		System.out.println("About:   " + page.getAbout());
-//		System.out.println("Phone:   " + page.getPhone());
-//		System.out.println("Website: " + page.getWebsite());
-//		System.out.println("Website: " + page.getCategory_list().get(0).getId());
-//
-		Map<String , Object> mapModel = new HashMap<String, Object>();
-		
-		mapModel.put("title", page.getTitle());
-		mapModel.put("icon", page.getIcon());
-		mapModel.put("listEntry", page.getEntries());
-	
-		System.out.println( page.getEntries().get(0).getContent());
-		return new ModelAndView("joblist", mapModel);
-		
+		if (page != null) {
+
+			Map<String, Object> mapModel = new HashMap<String, Object>();
+
+			mapModel.put("title", page.getTitle());
+			mapModel.put("icon", page.getIcon());
+			mapModel.put("listEntry", page.getEntries());
+
+			System.out.println(page.getEntries().get(0).getContent());
+
+			mv.setViewName("joblist");
+			mv.addObject(mapModel);
+
+		} else {
+			mv.setViewName("joblist");
+		}
+
+		// return new ModelAndView("joblist", mapModel);
+
+		return mv;
 	}
 
 	@RequestMapping(value = "/joblistjobs.htm", method = RequestMethod.POST)

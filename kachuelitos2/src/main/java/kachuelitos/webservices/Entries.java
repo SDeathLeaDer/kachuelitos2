@@ -1,7 +1,5 @@
 package kachuelitos.webservices;
 
-
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
