@@ -45,9 +45,9 @@
 
 	<div id='content2'>
 		<form action="sendContact.htm" method="post"
-			style="width: 200px; float: left"  
-			onsubmit="return validationSubmit();">
-			<fieldset style="width: 300px; padding: 10px; margin-left: 10px; margin-top: 10px">
+			style="width: 200px; float: left; margin-left: 36px; margin-top: 36px; " 
+			onsubmit="return validationSubmit(); ">
+			<!--  <fieldset style="width: 300px; padding: 10px; margin-left: 10px; margin-top: 10px">-->
 
 				<legend align="left">Como contactarnos</legend>
 				<p class="maincontent">
@@ -84,7 +84,7 @@
 					<c:out value="${smessage}" />
 				</div>
 
-			</fieldset>
+			<!--  </fieldset>  -->
 		</form>
 
 
