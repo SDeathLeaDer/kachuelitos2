@@ -21,6 +21,8 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import sun.org.mozilla.javascript.internal.ast.TryStatement;
+
 @Controller
 public class JobListController {
 
@@ -37,13 +39,11 @@ public class JobListController {
 
 		RestTemplate restTemplate = new RestTemplate();
 		ModelAndView mv = new ModelAndView();
-		
-		Page page = restTemplate.getForObject(
-				"https://www.facebook.com/feeds/page.php?format=json&id="
-						+ idPage, Page.class);
 
-		if (page != null) {
-
+		try {
+			Page page = restTemplate.getForObject(
+					"https://www.facebook.com/feeds/page.php?format=json&id="
+							+ idPage, Page.class);
 			Map<String, Object> mapModel = new HashMap<String, Object>();
 
 			mapModel.put("title", page.getTitle());
@@ -53,10 +53,14 @@ public class JobListController {
 			System.out.println(page.getEntries().get(0).getContent());
 
 			mv.setViewName("joblist");
-			mv.addObject(mapModel);
+			mv.addAllObjects(mapModel);
+			
 
-		} else {
+		} catch (RestClientException rce) {
+
 			mv.setViewName("joblist");
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 
 		// return new ModelAndView("joblist", mapModel);
