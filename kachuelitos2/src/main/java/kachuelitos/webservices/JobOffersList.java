@@ -2,21 +2,16 @@ package kachuelitos.webservices;
 
 import java.util.List;
 
-import kachuelitos.persistence.entity.Servicio;
+import kachuelitos.persistence.entity.User;
 
 
 public class JobOffersList {
-
-
-	/*
-	public List<Servicio> verifyJobList(String description, String details){
-		
-		List<E>
 	
-		while()
-			
-		return 
+	public List<User> verifyJobList(String description){
+		
+		ServiceDao serviceDao = new ServiceDao();
+
+		return 	serviceDao.JobOffersListService(description);
 	}
 	
-	*/
 }
