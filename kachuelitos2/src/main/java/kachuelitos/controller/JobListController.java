@@ -53,7 +53,8 @@ public class JobListController {
 			System.out.println(page.getEntries().get(0).getContent());
 
 			mv.setViewName("joblist");
-			mv.addObject(mapModel);
+			mv.addAllObjects(mapModel);
+			
 
 		} catch (RestClientException rce) {
 
