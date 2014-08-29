@@ -1,5 +1,6 @@
 package kachuelitos.webservices;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kachuelitos.persistence.entity.User;
@@ -7,7 +8,7 @@ import kachuelitos.persistence.entity.User;
 
 public class JobOffersList {
 	
-	public List<User> verifyJobList(String description){
+	public ArrayList <User> verifyJobList(String description){
 		
 		ServiceDao serviceDao = new ServiceDao();
 
