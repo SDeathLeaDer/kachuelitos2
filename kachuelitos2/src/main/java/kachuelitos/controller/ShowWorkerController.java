@@ -8,8 +8,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kachuelitos.persistence.entity.Tagcache;
 import kachuelitos.persistence.entity.Trabajador;
 import kachuelitos.persistence.entity.User;
+import kachuelitos.service.TagCacheManager;
 import kachuelitos.service.UserManager;
 import kachuelitos.service.WorkerManager;
 import kachuelitos.webservices.Page;
@@ -27,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 import util.LuceneTextAnalyzer;
 import ci.tagcloud.TagCloud;
 import ci.textanalysis.InverseDocFreqEstimator;
+import ci.textanalysis.TagCache;
 import ci.textanalysis.TagMagnitudeVector;
 import ci.textanalysis.lucene.impl.EqualInverseDocFreqEstimator;
 import ci.textanalysis.lucene.impl.TagCacheImpl;
@@ -42,6 +45,10 @@ public class ShowWorkerController {
 
 	@Autowired
 	private UserManager userManager;
+	
+	@Autowired
+	private TagCacheManager tagCacheManager;
+	
 
 	@RequestMapping(value = "/ShowWorker.htm", method = RequestMethod.GET)
 	public ModelAndView formUserAccount(HttpServletRequest request,
@@ -70,9 +77,7 @@ public class ShowWorkerController {
 			// TODO: handle exception
 		}
 
-		// Buscando en la tabla cache en caso contrario se genera los tags
-		// clouds
-
+	
 		int dni = Integer.valueOf(request.getParameter("idWorker"));
 		Trabajador trabajador = workerManager.getWorker(dni);
 		mapModel.put("worker", trabajador);
@@ -80,36 +85,40 @@ public class ShowWorkerController {
 		User user = userManager.getUser(dni);
 		mapModel.put("userworker", user);
 
-		
-//		String title = "Collective Intelligence and Web2.0";
-//		String body = "Web2.0 is all about connecting users to users, "
-//				+ " inviting users to participate and applying their collective"
-//				+ " intelligence to improve the application. Collective intelligence"
-//				+ " enhances the user experience";
+				
+		// Buscando en la tabla cache en caso contrario se genera los tags
+		// clouds
 
-		String document1 = trabajador.getExperienciaTrabajador();
-		String document2 = trabajador.getResumenTrabajador();
+		Tagcache tagCache = tagCacheManager.getTagCache(user.getDniuser());
+		String html  = null;
 		
-		TagCacheImpl t = new TagCacheImpl();
-		InverseDocFreqEstimator idfEstimator = new EqualInverseDocFreqEstimator();
-		LuceneTextAnalyzer lta = new LuceneTextAnalyzer(t, idfEstimator);
+		if(tagCache != null){
+			html = tagCache.getContentTags();
+		}
+		else{
+			
+			String document1 = trabajador.getExperienciaTrabajador();
+			String document2 = trabajador.getResumenTrabajador();
+			
+			TagCacheImpl t = new TagCacheImpl();
+			InverseDocFreqEstimator idfEstimator = new EqualInverseDocFreqEstimator();
+			LuceneTextAnalyzer lta = new LuceneTextAnalyzer(t, idfEstimator);
 
-		TagMagnitudeVector tmdocument1 = lta.createTagMagnitudeVector(document1);
-		TagMagnitudeVector tmdocument2 = lta.createTagMagnitudeVector(document2);
-		TagMagnitudeVector tmCombined = tmdocument1.add(tmdocument2);
+			TagMagnitudeVector tmdocument1 = lta.createTagMagnitudeVector(document1);
+			TagMagnitudeVector tmdocument2 = lta.createTagMagnitudeVector(document2);
+			TagMagnitudeVector tmCombined = tmdocument1.add(tmdocument2);
+			
+			System.out.println(tmCombined);
+			
+			TagCloud tagCloud = lta.createTagCloud(tmdocument2);
+			 html = lta.visualizeTagCloud(tagCloud);
+		}
 		
-		System.out.println(tmCombined);
-		
-		TagCloud tagCloud = lta.createTagCloud(tmdocument2);
-		String html = lta.visualizeTagCloud(tagCloud);
 		
 		System.out.println("html:" + html);
-
 		mapModel.put("tagCloud", html);
 		
 		mv.addAllObjects(mapModel);
-
-		// System.out.println("el id de dni que entro es:" +idDni);
 
 		return mv;
 	}
