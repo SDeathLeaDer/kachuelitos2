@@ -14,6 +14,7 @@
         <property name="hibernate.search.autoregister_listeners">false</property>
         <mapping class="kachuelitos.persistence.entity.User" />
         <mapping class="kachuelitos.persistence.entity.Trabajo" />
+        <mapping class="kachuelitos.persistence.entity.Tagcache" />
         <mapping class="kachuelitos.persistence.entity.Comentario" />
         <mapping class="kachuelitos.persistence.entity.Trabajador" />
         <mapping class="kachuelitos.persistence.entity.ServicioHasTrabajador" />

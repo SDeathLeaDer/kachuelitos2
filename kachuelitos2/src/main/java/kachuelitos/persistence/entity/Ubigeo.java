@@ -1,6 +1,6 @@
 package kachuelitos.persistence.entity;
 
-// Generated 07-sep-2014 1:54:10 by Hibernate Tools 4.0.0
+// Generated 07-sep-2014 22:39:05 by Hibernate Tools 4.0.0
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
