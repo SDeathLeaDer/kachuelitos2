@@ -54,7 +54,6 @@
 					DNI <input id="idni" name="idni" type="text"
 						onchange="validation('idni')" /> <img id="dni_check">
 				</p>
-
 				<p class="maincontent">
 					Nombre <input id="iname" name="iname"
 						onchange="validation('iname')" /> <img id="name_check" />
@@ -74,16 +73,12 @@
 				<br>
 				<p class="maincontent">Telefonos.</p>
 				<p class="maincontent">054 441163</p>
-
 				<p class="maincontent">
 					<button>Enviar</button>
 				</p>
-
-
 				<div id="imessage">
 					<c:out value="${smessage}" />
 				</div>
-
 			<!--  </fieldset>  -->
 		</form>
 

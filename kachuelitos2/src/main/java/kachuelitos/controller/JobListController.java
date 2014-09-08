@@ -31,12 +31,9 @@ public class JobListController {
 
 	@Autowired
 	private UserManager userManager;
-
 	@RequestMapping(value = "/searchjobs.htm", method = RequestMethod.GET)
 	public ModelAndView formUserAccount() {
-
 		// Haciendo una peticion rest a fb
-
 		RestTemplate restTemplate = new RestTemplate();
 		ModelAndView mv = new ModelAndView();
 
@@ -54,10 +51,8 @@ public class JobListController {
 
 			mv.setViewName("joblist");
 			mv.addAllObjects(mapModel);
-			
 
 		} catch (RestClientException rce) {
-
 			mv.setViewName("joblist");
 		} catch (Exception e) {
 			// TODO: handle exception
