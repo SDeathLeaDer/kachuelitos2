@@ -1,9 +1,7 @@
 package kachuelitos.service;
 
 import kachuelitos.persistence.dao.TagCacheDao;
-import kachuelitos.persistence.dao.TrabajadorDao;
 import kachuelitos.persistence.entity.Tagcache;
-import kachuelitos.persistence.entity.Trabajador;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

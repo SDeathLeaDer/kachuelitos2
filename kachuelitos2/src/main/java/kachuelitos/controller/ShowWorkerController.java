@@ -47,7 +47,7 @@ public class ShowWorkerController {
 	private UserManager userManager;
 	
 	@Autowired
-	private TagCacheManager tagCacheManager;
+	private TagCacheManager tagcacheManager;
 	
 
 	@RequestMapping(value = "/ShowWorker.htm", method = RequestMethod.GET)
@@ -89,14 +89,15 @@ public class ShowWorkerController {
 		// Buscando en la tabla cache en caso contrario se genera los tags
 		// clouds
 
-		Tagcache tagCache = tagCacheManager.getTagCache(user.getDniuser());
+		Tagcache tagCache = tagcacheManager.getTagCache(user.getDniuser());
 		String html  = null;
 		
-		if(tagCache != null &&  tagCache.getFlagNewContent() != 0){
-			html = tagCache.getContentTags();
+		if(tagCache != null){
+			if( tagCache.getFlagNewContent() != 0){
+				html = tagCache.getContentTags();				
+			}
 		}
 		else{
-			tagCache.setFlagNewContent(1); // ya entro ya no hay nuevo contenido
 			
 			String document1 = trabajador.getExperienciaTrabajador();
 			String document2 = trabajador.getResumenTrabajador();
@@ -112,7 +113,10 @@ public class ShowWorkerController {
 			System.out.println(tmCombined);
 			
 			TagCloud tagCloud = lta.createTagCloud(tmdocument2);
-			 html = lta.visualizeTagCloud(tagCloud);
+			html = lta.visualizeTagCloud(tagCloud);
+			
+			tagcacheManager.add(new Tagcache(user.getDniuser(), html, 1));// se guarda los tags en el cache
+
 		}
 		
 		

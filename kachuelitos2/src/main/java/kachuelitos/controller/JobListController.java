@@ -54,6 +54,7 @@ public class JobListController {
 			Page page = restTemplate.getForObject(
 					"https://www.facebook.com/feeds/page.php?format=json&id="
 							+ idPage, Page.class);
+		
 			Map<String, Object> mapModel = new HashMap<String, Object>();
 
 			mapModel.put("title", page.getTitle());
@@ -115,8 +116,11 @@ public class JobListController {
 		DataTableObject dataTableObject = new DataTableObject();
 		dataTableObject.setAaData(listWork);
 		
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(dataTableObject);
+		
+
 		//out.print(json);
 
 		System.out.println("el json " +json);

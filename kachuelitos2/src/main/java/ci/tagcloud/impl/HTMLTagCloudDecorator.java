@@ -31,8 +31,8 @@ public class HTMLTagCloudDecorator implements VisualizeTagCloudDecorator {
 	public String decorateTagCloud(TagCloud tagCloud, String href, String head) {
 		StringWriter sw = new StringWriter();
 		List<TagCloudElement> elements = tagCloud.getTagCloudElements();
-		// sw.append(HEADER_HTML);
-		// sw.append("<br><body><h3>TagCloud (" + elements.size() +")</h3>");
+		// sw.append();
+		// sw.append("<br><h3>TagCloud (" + elements.size() +")</h3>");
 		sw.append(head);
 		int count = 0;
 		for (TagCloudElement tce : elements) {
@@ -54,7 +54,7 @@ public class HTMLTagCloudDecorator implements VisualizeTagCloudDecorator {
 		StringBuilder sb = new StringBuilder();
 		List<TagCloudElement> tagElements = tagCloud.getTagCloudElements();
 		//sb.append(HEADER);
-		sb.append("<br><body><h3>TagCloud (" + tagElements.size() + ")</h3>");
+		sb.append("<br><h3>TagCloud (" + tagElements.size() + ")</h3>");
 		int count = 0;
 		for (TagCloudElement e : tagElements) {
 			sb.append("&nbsp;<a style=\"" + this.fontMap.get(e.getFontSize())
@@ -65,7 +65,7 @@ public class HTMLTagCloudDecorator implements VisualizeTagCloudDecorator {
 				sb.append("<br>");
 			}
 		}
-		sb.append("<br></body><br></html>");
+		sb.append("<br><br>");
 		return sb.toString();
 	}
 
