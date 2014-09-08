@@ -1,6 +1,5 @@
 package kachuelitos.webservices;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import kachuelitos.persistence.entity.User;
@@ -20,16 +19,18 @@ public class ServiceDao {
 
 	}
 
-	public ArrayList<User> JobOffersListService(String description) {
+	public List<Object[]> JobOffersListService(String description) {
 
 		Session s = session.getCurrentSession();
 
 		Transaction trans = s.beginTransaction();
 		Query query = s.createSQLQuery("{call JobOffersListPA('"+description +"')}");
 
-		ArrayList<User> listUser = (ArrayList<User>)query.list();
+		@SuppressWarnings("unchecked")
+		List<Object[]>  listWorker =  (List<Object[]>)query.list();
+		
 		trans.commit();
 
-		return listUser;
+		return listWorker;
 	}
 }

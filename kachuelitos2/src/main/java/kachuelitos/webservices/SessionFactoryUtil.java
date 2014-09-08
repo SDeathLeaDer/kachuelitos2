@@ -20,6 +20,7 @@ public class SessionFactoryUtil {
 		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 
 		return sessionFactory;
+		
 	}
 
 	public static SessionFactory getInstance() {

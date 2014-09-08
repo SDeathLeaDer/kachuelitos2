@@ -7,37 +7,56 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Mis trabajos</title>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <c:url var="estiloscss" value="/resource/styles/page.css"></c:url>
 <link rel="stylesheet" type="text/css" href="${estiloscss}">
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <c:url var="estiloscss2" value="/resource/styles/tab2.css"></c:url>
 <link rel="stylesheet" type="text/css" href="${estiloscss2}">
 
 <c:url var="js" value="/resource/js/jquery-1.10.1.min.js"></c:url>
 <script type="text/javascript" src="${js}"></script>
 
-<script>
-	$(document).ready(
-			function() {
-				setInterval(function() {
-					var randomnumber = Math.floor(Math.random() * 100);
+<c:url var="currentStyle" value="/resource/css/demo_table_jui.css"></c:url>
+<link rel="stylesheet" type="text/css" href="${currentStyle}">
 
-					$.ajax({
-						url : "http://rest-service.guides.spring.io/greeting"
-					}).then(
-							function(data) {
-								$('#greeting-id').text(data.id);
-								$('#greeting-content').text(data.content);
-								$('#show').text(
-										'I am getting refreshed every 3 seconds..! Random Number ==> '
-												+ randomnumber);
-							});
+<c:url var="jquery_ui"
+	value="/resource/css/jquery-ui-1.9.2.custom.min.css"></c:url>
+<link rel="stylesheet" type="text/css" href="${jquery_ui}">
 
-				}, 5000);
-			});
-</script>
+<c:url var="js2" value="/resource/js/jquery.dataTables.min.js"></c:url>
+<script type="text/javascript" src="${js2}"></script>
+
+<c:url var="js3" value="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></c:url>
+<script type="text/javascript" src="${js3}"></script>
+
+<c:url var="js4" value="/resource/js/my-demo-table-script.js"></c:url>
+<script type="text/javascript" src="${js4}"></script>
+
+
+<!-- <script src="./resource/js/jquery-1.8.3.min.js"></script>
+<script src="./resource/js/jquery.dataTables.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script src="./resource/js/my-demo-table-script.js"></script>
+
+  -->
+
+<style>
+.table-container {
+	width: 610px;
+}
+
+tr.odd {
+	background: #c1c1c1 !important;
+}
+
+tr.odd td.sorting_1 {
+	background: #c1c1c1 !important;
+}
+
+tr.even td.sorting_1 {
+	background: #FFFFFF !important;
+}
+</style>
 
 
 </head>
@@ -67,8 +86,29 @@
 		</ul>
 	</div>
 
-	<div id='content2'>
-		<div id='contentSearh'></div>
+
+	<div id='content2' >
+		<div id='contentSearh' align="center">
+
+			<div class="table-container">
+				<table cellpadding="0" cellspacing="0" border="0"
+					class="display jqueryDataTable">
+					<thead>
+						<tr>
+							<th>DNI</th>
+							<th>NOMBRE</th>
+							<th>APELLIDO</th>
+							<th>TELEFONO</th>
+							<th>DIRECCION</th>
+							<th>VER</th>
+
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
 
 		<div id='contentBanner' style="border-left: 1px solid black">
 			<div id='socialnetwork'>

@@ -52,6 +52,7 @@ public class UserRegistrationController {
 
 		User user = new User(Integer.valueOf(dni),password, name, lastname, email, Integer.valueOf(ubigeo), null, null, false);
 
+
 		if(userManager.addUser(user)){
 	
 			smessage = "Gracias por registrarte, ingrese lo datos para los poder loguarse =)";

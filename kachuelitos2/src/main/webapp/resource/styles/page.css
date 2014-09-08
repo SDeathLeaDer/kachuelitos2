@@ -104,7 +104,8 @@ button {
 }
 
 #contentSearh {
-	width: 710px;
+	padding-top: 10px;
+	width: 650px;
 	float: left;
 }
 
@@ -119,16 +120,70 @@ button {
 }
 
 table {
-  border-collapse: collapse;
+	border-collapse: collapse;
 }
-tr { 
-  border: solid;
-  border-width: 1px 0;
+
+tr {
+	border: solid;
+	border-width: 1px 0;
 }
 
 tr:first-child {
-  border-top: none;
+	border-top: none;
 }
+
 tr:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
+
+#cv {
+	height: 100%;
+	width: 100%;
+	margin: 20px
+}
+
+#headercv {
+	height: 150px;
+	width: 100%;
+}
+
+#photocv {
+	height: 150px;
+	width: 20%;
+	float: left;
+
+}
+
+#photo{
+	height: 100px;
+	width: 80px;
+	margin: 2px; 
+	border-style : solid;
+	border-color: red;
+	border-style: solid;
+}
+
+#personalcv {
+	height: 150px;
+	width: 80%;
+	float: right;
+}
+
+#aboutcv {
+	height: auto;
+	width: 100%;
+	float: inherit;
+}
+
+#experiencecv {
+	height: auto;
+	width: 100%;
+	float: inherit;
+}
+
+#tagsCloud {
+	height: auto;
+	width: 100%;
+	float: inherit;
+}
+

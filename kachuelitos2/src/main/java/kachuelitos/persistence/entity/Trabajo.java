@@ -1,6 +1,6 @@
 package kachuelitos.persistence.entity;
 
-// Generated 29-jul-2014 20:13:27 by Hibernate Tools 4.0.0
+// Generated 07-sep-2014 1:54:10 by Hibernate Tools 4.0.0
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;

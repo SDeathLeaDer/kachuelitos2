@@ -2,13 +2,16 @@ package kachuelitos.webservices;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Entries {
 
 	
+	
     private String title;
     private String published;
     private String content;
+    
 	public String getTitle() {
 		return title;
 	}
@@ -27,7 +30,5 @@ public class Entries {
 	public void setContent(String content) {
 		this.content = content;
 	}
-    
-    
         
 }

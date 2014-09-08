@@ -1,6 +1,6 @@
 package kachuelitos.persistence.entity;
 
-// Generated 29-jul-2014 20:13:27 by Hibernate Tools 4.0.0
+// Generated 07-sep-2014 1:54:10 by Hibernate Tools 4.0.0
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +16,8 @@ public class Trabajador implements java.io.Serializable {
 
 	private int trabajadorDniuser;
 	private Float reputacionTrabajador;
+	private String resumenTrabajador;
+	private String experienciaTrabajador;
 
 	public Trabajador() {
 	}
@@ -24,9 +26,12 @@ public class Trabajador implements java.io.Serializable {
 		this.trabajadorDniuser = trabajadorDniuser;
 	}
 
-	public Trabajador(int trabajadorDniuser, Float reputacionTrabajador) {
+	public Trabajador(int trabajadorDniuser, Float reputacionTrabajador,
+			String resumenTrabajador, String experienciaTrabajador) {
 		this.trabajadorDniuser = trabajadorDniuser;
 		this.reputacionTrabajador = reputacionTrabajador;
+		this.resumenTrabajador = resumenTrabajador;
+		this.experienciaTrabajador = experienciaTrabajador;
 	}
 
 	@Id
@@ -46,6 +51,24 @@ public class Trabajador implements java.io.Serializable {
 
 	public void setReputacionTrabajador(Float reputacionTrabajador) {
 		this.reputacionTrabajador = reputacionTrabajador;
+	}
+
+	@Column(name = "ResumenTrabajador", length = 1000)
+	public String getResumenTrabajador() {
+		return this.resumenTrabajador;
+	}
+
+	public void setResumenTrabajador(String resumenTrabajador) {
+		this.resumenTrabajador = resumenTrabajador;
+	}
+
+	@Column(name = "ExperienciaTrabajador", length = 1000)
+	public String getExperienciaTrabajador() {
+		return this.experienciaTrabajador;
+	}
+
+	public void setExperienciaTrabajador(String experienciaTrabajador) {
+		this.experienciaTrabajador = experienciaTrabajador;
 	}
 
 }

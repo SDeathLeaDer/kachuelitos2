@@ -3,6 +3,7 @@
 	<name>kachuelitos2</name>
 	<comment></comment>
 	<projects>
+		<project>gson-2.2.2</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

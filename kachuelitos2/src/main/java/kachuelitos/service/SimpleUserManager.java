@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kachuelitos.persistence.dao.TrabajadorDao;
 import kachuelitos.persistence.dao.UserDao;
 import kachuelitos.persistence.entity.User;
 
@@ -20,7 +21,7 @@ public class SimpleUserManager implements UserManager {
     private static final long serialVersionUID = 1L;
 
     @Autowired
-    private UserDao  userDao;
+    private UserDao userDao;
     
     private User user;
 
@@ -78,5 +79,10 @@ public class SimpleUserManager implements UserManager {
     public List<User> getUsers() {
         return userDao.getAllUsuario();
     }
+
+	public User getUser(int dni) {
+		
+		return userDao.getUsuario(dni);
+	}
 
 }

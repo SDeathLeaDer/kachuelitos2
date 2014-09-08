@@ -11,6 +11,7 @@ public class Page {
     private String icon;
     private String link;
     private List<Entries> entries;
+    
 	public String getTitle() {
 		return title;
 	}
@@ -35,9 +36,5 @@ public class Page {
 	public void setEntries(List<Entries> entries) {
 		this.entries = entries;
 	}
-    
-    
-
-    
-    
+        
 }

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import kachuelitos.persistence.entity.Trabajador;
 import kachuelitos.persistence.entity.User;
 
 import org.springframework.stereotype.Repository;
@@ -39,8 +40,21 @@ public class UserDaoImpl implements UserDao {
      @Transactional(readOnly = false)
 	public User getUsuario(int usuarioId) {
 		// TODO Auto-generated method stub
-		return null;
+    	 
+
+		User user = null;
+    
+    	//System.out.print("salida"+"select t from Trabajador t where t.trabajadorDniuser=:"+trabajadorId);
+            	
+		Query query= em.createQuery("FROM User u WHERE u.dniuser = :dni");
+		query.setParameter("dni", Integer.valueOf(usuarioId));
+
+		user = (User)query.getSingleResult();
+    
+    	return user;
+		
 	}
+     
     @SuppressWarnings("unchecked")
 	@Transactional(readOnly = false)
 	public User getUsuarioDniPassword(String sDni, String sPassword) {
