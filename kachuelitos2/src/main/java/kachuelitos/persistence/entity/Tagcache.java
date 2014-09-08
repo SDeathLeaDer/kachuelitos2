@@ -1,6 +1,6 @@
 package kachuelitos.persistence.entity;
 
-// Generated 07-sep-2014 22:39:05 by Hibernate Tools 4.0.0
+// Generated 07-sep-2014 23:17:15 by Hibernate Tools 4.0.0
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +16,7 @@ public class Tagcache implements java.io.Serializable {
 
 	private int idTagCacheDni;
 	private String contentTags;
+	private Integer flagNewContent;
 
 	public Tagcache() {
 	}
@@ -24,9 +25,11 @@ public class Tagcache implements java.io.Serializable {
 		this.idTagCacheDni = idTagCacheDni;
 	}
 
-	public Tagcache(int idTagCacheDni, String contentTags) {
+	public Tagcache(int idTagCacheDni, String contentTags,
+			Integer flagNewContent) {
 		this.idTagCacheDni = idTagCacheDni;
 		this.contentTags = contentTags;
+		this.flagNewContent = flagNewContent;
 	}
 
 	@Id
@@ -46,6 +49,15 @@ public class Tagcache implements java.io.Serializable {
 
 	public void setContentTags(String contentTags) {
 		this.contentTags = contentTags;
+	}
+
+	@Column(name = "flagNewContent")
+	public Integer getFlagNewContent() {
+		return this.flagNewContent;
+	}
+
+	public void setFlagNewContent(Integer flagNewContent) {
+		this.flagNewContent = flagNewContent;
 	}
 
 }

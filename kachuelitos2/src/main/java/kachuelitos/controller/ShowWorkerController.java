@@ -92,10 +92,11 @@ public class ShowWorkerController {
 		Tagcache tagCache = tagCacheManager.getTagCache(user.getDniuser());
 		String html  = null;
 		
-		if(tagCache != null){
+		if(tagCache != null &&  tagCache.getFlagNewContent() != 0){
 			html = tagCache.getContentTags();
 		}
 		else{
+			tagCache.setFlagNewContent(1); // ya entro ya no hay nuevo contenido
 			
 			String document1 = trabajador.getExperienciaTrabajador();
 			String document2 = trabajador.getResumenTrabajador();
