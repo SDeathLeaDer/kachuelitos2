@@ -67,8 +67,7 @@
 						onchange="validation('iemail')" /> <img id="email_check" />
 				</p>
 				<p class="maincontent">
-					Mensaje <textarea id="imessage" name="imessage"cols="30"rows"6"></textarea>  <img
-						id="password_check" />
+					Mensaje <textarea id="imessage" name="imessage"cols="30"rows"6" ></textarea>  
 				</p>
 				<br>
 				<p class="maincontent">Telefonos.</p>

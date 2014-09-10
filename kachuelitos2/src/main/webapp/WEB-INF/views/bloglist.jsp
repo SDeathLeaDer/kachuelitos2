@@ -18,7 +18,7 @@
 <c:url var="js" value="/resource/js/jquery-1.10.1.min.js"></c:url>
 <script type="text/javascript" src="${js}"></script>
 
-<!-- <script>
+ <script>
 	$(document).ready(
 			function() {
 				setInterval(function() {
@@ -38,7 +38,7 @@
 				}, 5000);
 			});
 </script>
- -->
+ 
 
 </head>
 <body>
@@ -48,7 +48,13 @@
 	
 
 	<div id='content2'>
-		<div id='contentSearh'></div>
+		<div id='contentSearh'>
+		<p class="maincontent">
+					Mensaje <textarea id="imessage" name="imessage"cols="30"rows"6"></textarea>  <img
+						id="password_check" value=<c:out value="${result}"/>  />
+				</p>
+		
+		</div>
 
 		<div id='contentBanner' style="border-left: 1px solid black">
 			<div id='socialnetwork'>
@@ -58,7 +64,7 @@
 					<c:out value="${title}" />
 				</div>
 				<br>
-
+				<c:out value="${result}"/>
 				<div id="imessage"
 					style="height: 80%; width: 100%; border: 1px solid #ccc; overflow: auto;">
 

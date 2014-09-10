@@ -63,7 +63,9 @@ public class SearchBlogController {
 			System.out.println(tagResult);
 			System.out.println(tagResult.toString());
 			mv.setViewName("bloglist");
-			mv.addObject(tagResult);
+			Map<String, Object> mapModel = new HashMap<String, Object>();
+			mapModel.put("result", tagResult);
+			mv.addObject(mapModel);
 			
 		} catch (BlogSearcherException e) {
 			// TODO Auto-generated catch block
