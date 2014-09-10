@@ -117,13 +117,13 @@ public abstract class BlogSearcherImpl implements BlogSearcher {
         }
     }
 
-    /**
-     * UTF-8 is the encoding scheme
-     * 
-     * @param s
-     * @return
-     * @throws BlogSearcherException
-     */
+    
+//      UTF-8 is the encoding scheme
+//      
+//      @param s
+//      @return
+//      @throws BlogSearcherException
+     
     public static String urlEncode(String s) {
         String result = s;
         try {

@@ -49,10 +49,19 @@
 		</form>
 		
 	</div>
-
+<div align="center" id="blog">
+		<form action="searchblogs.htm" method="get">
+			<p class="maincontent">Busqueda en blogosphera</p>
+			<p class="maincontent">
+				<input name="typework" id="typework">
+			</p>
+			<button>Buscar</button>
+		</form>
+		</div>
 	<div id="footercontent" align="center">
 		<p>Derechos Reserv@dos 101 Kachuelitos 2014</p>
 	</div>
+	
 
 </body>
 </html>
